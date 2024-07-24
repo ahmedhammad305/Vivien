@@ -7,7 +7,7 @@ function Navigation (){
         <>
         <div className="container">
          <nav className="navbar leader">
-  <div class="container-fluid parent">
+  <div className="container-fluid parent">
   <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,7 @@ function Navigation (){
         <a href="https://www.tiktok.com/@vivienbodymilk?_t=8o1jwafxWLw&_r=1" className=""><FaTiktok/></a> <a href="https://www.instagram.com/vivien.hydration/?mibextid=NOb6eG"><GrInstagram/></a></div>
     <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div className="offcanvas-header">
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -34,7 +34,7 @@ function Navigation (){
           <li style={{ cursor:'pointer'}} className="nav-item dropdown">
             <ul style={{ cursor:'pointer'}} className="dropdown-menu">
               <li><Link  to="/" className="dropdown-item" >منتجات بنات</Link></li>
-              
+
             </ul>
           </li>
         </ul>
@@ -48,5 +48,5 @@ function Navigation (){
     )
 }
 
-   
+
 export default Navigation;

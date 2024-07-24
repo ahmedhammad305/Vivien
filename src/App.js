@@ -1,18 +1,25 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 // import Home from './Home';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigation from './Navigation';
 import SconedLink from './SconedLink';
-import  { useEffect } from 'react';
 import ThirdLink from './ThirdLink';
 import FourhLink from './FourhLink';
 const LazyLoading = React.lazy(() => import("./Home"));
 
 function App() {
+
+  useEffect(() => {
+    if(window.ttq) {
+      console.log('ttq fired');
+      window.ttq.page();
+    }
+  }, []);
+
   const location = useLocation();
   useEffect(()=> {
-    window.scrollTo({top:0, left:0, behavior:'instant'})  
+    window.scrollTo({top:0, left:0, behavior:'instant'})
     }, [location.pathname]);
   return (
    <>
