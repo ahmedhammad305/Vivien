@@ -15,6 +15,13 @@ function App() {
       console.log('ttq fired');
       window.ttq.page();
     }
+
+    if(window.fbq) {
+      console.log('fbq fired');
+      window.fbq('track', 'PageView');
+    }
+
+
   }, []);
 
   const location = useLocation();
