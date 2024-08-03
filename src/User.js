@@ -56,7 +56,7 @@ export default function User() {
         setPhoneError('');
 
         const formattedPhoneNumber = formatPhoneNumber(phoneNumber);
-        axios.post('http://153.92.223.39/:3060/api/v1/orders',{
+        axios.post('https://admin.vivien-cosmetics.com/api/v1/orders',{
             fullname: name,
             phone: formattedPhoneNumber,
             address: addresss,
