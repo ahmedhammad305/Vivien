@@ -56,7 +56,7 @@ export default function User() {
         setPhoneError('');
 
         const formattedPhoneNumber = formatPhoneNumber(phoneNumber);
-        axios.post('http://localhost:3050/api/v1/orders',{
+        axios.post('http://localhost:3060/api/v1/orders',{
             fullname: name,
             phone: formattedPhoneNumber,
             address: addresss,
