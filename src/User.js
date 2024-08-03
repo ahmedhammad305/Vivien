@@ -9,7 +9,7 @@ export default function User() {
     const [addresss, setAddress] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [phoneError, setPhoneError] = useState('');
-    const unitPrice = 298;
+    const unitPrice = 249;
     const totalPrice = unitPrice * quantity;
     const shipping = 50;
     // دالة لتحويل الأرقام الهندية والعربية إلى أرقام غربية
@@ -56,12 +56,13 @@ export default function User() {
         setPhoneError('');
 
         const formattedPhoneNumber = formatPhoneNumber(phoneNumber);
-        axios.post('https://fakestoreapi.com/products',{
+        axios.post('http://localhost:3050/api/v1/orders',{
             fullname: name,
-            Phone: formattedPhoneNumber,
+            phone: formattedPhoneNumber,
             address: addresss,
             qty: quantity,
-            shipping_cost: shipping
+            shipping_cost: shipping,
+            product_price: unitPrice
         }
         )
             .then((response) => {
@@ -105,10 +106,10 @@ export default function User() {
                                 <label>اسمك بالكامل</label>
                                 <input type='text' onChange={(e) => setName(e.target.value)} value={name} required minLength='2'/>
                                 <label>رقم الهاتف</label>
-                                <input 
-                                    required 
-                                    type='text' 
-                                    onChange={handlePhoneNumberChange} 
+                                <input
+                                    required
+                                    type='text'
+                                    onChange={handlePhoneNumberChange}
                                     value={phoneNumber}
                                 />
                                 {phoneError && <p style={{ color: 'red',fontSize:'14px' }}>{phoneError}</p>}
@@ -117,18 +118,18 @@ export default function User() {
                                     onChange={(e) => setAddress(e.target.value)}
                                     value={addresss}
                                     rows={3} // adjust the number of visible rows as needed
-                                    cols={50} // adjust the number of visible columns as needed  
+                                    cols={50} // adjust the number of visible columns as needed
                                     required
                                 />
                                 <label>الكمية</label>
                                 <input type='number' min="1" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value))} />
                                 <div className="salary">
                                     <p style={{ fontWeight: '600' }}> سعر المنتج</p>
-                                    <p style={{ fontWeight: "600" }}>249 ج.م</p>
+                                    <p style={{ fontWeight: "600" }}>{unitPrice} ج.م</p>
                                 </div>
                                 <div className="salary">
                                     <p style={{ fontWeight: '600' }}>تكلفة الشحن</p>
-                                    <p style={{ fontWeight: "600" }}>49 ج.م</p>
+                                    <p style={{ fontWeight: "600" }}>{shipping} ج.م</p>
                                 </div>
                                 <div className="salary">
                                     <p style={{ marginTop: "-8px", fontWeight: "600" }}> الاجمالي</p>
